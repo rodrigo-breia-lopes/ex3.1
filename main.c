@@ -31,6 +31,8 @@ void main(int argc, char *argv[])
 
 	//Config GPIO
 	P1DIR = 0xF7;
+
+	P1IFG = 0;
 	P1IE  = BIT3;
 	P1REN = BIT3;
 
@@ -49,7 +51,7 @@ __interrupt void PORT1_ISR_HOOK(void)
 {
     int i = 1;
     i +=1 ;
-    while(1);
+    while(1); //ha uma interrupçao a ser gerada para a qual não há rotina criada (o "C" faz o trap para parar execução)
 
     /* Port 1 Interrupt Handler */
    // Switch_Handler();
